@@ -21,11 +21,7 @@ impl DmaCtx {
         let offset_build_number = env!("CS2_BUILD_NUMBER").parse::<usize>()?;
 
         if game_build_number as usize != offset_build_number {
-            return Warn(anyhow::anyhow!(
-                "game build is {}, but offsets are for {}",
-                game_build_number,
-                offset_build_number
-            ));
+            println!("Error: game build is {}, but offsets are for {}", game_build_number, offset_build_number);
         }
 
         Ok(())
