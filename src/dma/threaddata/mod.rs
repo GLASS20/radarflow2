@@ -172,7 +172,7 @@ impl CsData {
             let bomb_planted_addr = (self.gamerules + cs2dumper::client::C_CSGameRules::m_bBombPlanted as u64).into();
 
             // Game Entity System
-            let highest_index_addr = (self.game_ent_sys + cs2dumper::offsets::client_dll::dwGameEntitySystem_getHighestEntityIndex as u64).into();
+            let highest_index_addr = (self.game_ent_sys + cs2dumper::offsets::client_dll::dwGameEntitySystem_highestEntityIndex as u64).into();
 
             let mut batcher = ctx.process.batcher();
             batcher.read_into(
