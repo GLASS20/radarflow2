@@ -13,15 +13,22 @@ struct InfoJson {
 
 fn download(url: &str, to: &str) -> Result<(), Box<dyn Error>> {
     let client = Client::builder()
-        .timeout(Duration::from_secs(10)) // 设置请求超时时间为10秒
+        .timeout(Duration::from_secs(10))
         .build()?;
 
-    let content = client.get(url).send()?.text()?;
-
-    std::fs::write(to, content)?;
-
-    Ok(())
+    match client.get(url).send() {
+        Ok(response) => {
+            let content = response.text()?;
+            std::fs::write(to, content)?;
+            Ok(())
+        }
+        Err(e) => {
+            eprintln!("Error downloading {}: {}", url, e);
+            Ok(())
+        }
+    }
 }
+
 
 fn build_number() -> Result<(), Box<dyn Error>> {
     let content = Client::new()
