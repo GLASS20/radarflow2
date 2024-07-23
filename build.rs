@@ -29,7 +29,8 @@ fn build_number() -> Result<(), Box<dyn Error>> {
 
     let info = serde_json::from_str::<InfoJson>(&content)?;
     println!("cargo:rustc-env=CS2_BUILD_NUMBER={}", info.build_number);
-	@@ -34,21 +36,20 @@ fn build_number() -> Result<(), Box<dyn Error>> {
+
+    Ok(())
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -51,7 +52,13 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     build_number()?;
 
-	@@ -62,4 +63,4 @@ fn main() -> Result<(), Box<dyn Error>> {
+    EmitBuilder::builder()
+        .git_sha(true)
+        .git_commit_date()
+        .cargo_debug()
+        .cargo_target_triple()
+        .rustc_semver()
+        .rustc_llvm_version()
         .emit()?;
 
     Ok(())
