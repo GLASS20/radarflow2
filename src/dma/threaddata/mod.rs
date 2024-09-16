@@ -229,7 +229,8 @@ impl CsData {
         }
 
 
-        let map_string = ctx.process.read_utf8(map_ptr.into(), 4096).unwrap_or(String::from("<empty>"));
+        let map_string = ctx.process.read_char_string_n(map_ptr.into(), 32).unwrap_or(String::from("<empty>"));
+
         self.map = map_string;
         self.bomb_dropped = bomb_dropped != 0;
         self.bomb_planted = bomb_planted != 0;
