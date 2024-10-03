@@ -158,7 +158,7 @@ impl CsData {
     pub fn update_common(&mut self, ctx: &mut DmaCtx) {
         let mut bomb_dropped = 0u8;
         let mut bomb_planted = 0u8;
-        let mut map_ptr = 0u64;
+        let mut map_ptr = 0u32;
         let mut bomb_being_defused = 0u8;
         let mut bomb_exploded = 0u8;
         let mut bomb_defused = 0u8;
@@ -166,7 +166,7 @@ impl CsData {
         {
             // Globals
             let tick_count_addr = (self.globals + 0x40).into();
-            let map_addr = (self.matchmaking + cs2dumper::offsets::matchmaking_dll::dwGameTypes as u64 + cs2dumper::offsets::matchmaking_dll::dwGameTypes_mapName as u64).into();
+            let map_addr = (self.matchmaking + cs2dumper::offsets::matchmaking_dll::dwGameTypes as u64 + cs2dumper::offsets::matchmaking_dll::dwGameTypes_mapName as u64 + 0x04).into();
 
             // Gamerules
             let bomb_dropped_addr = (self.gamerules + cs2dumper::client::C_CSGameRules::m_bBombDropped as u64).into();
