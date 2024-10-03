@@ -14,6 +14,7 @@ pub struct CsData {
 
     // Pointers
     pub globals: u64,
+    pub matchmaking: u64,
     pub gamerules: u64,
     pub entity_list: u64,
     pub game_ent_sys: u64,
@@ -165,7 +166,7 @@ impl CsData {
         {
             // Globals
             let tick_count_addr = (self.globals + 0x40).into();
-            let map_addr = (self.globals + 0x1B8).into();
+            let map_addr = (self.matchmaking + cs2dumper::offsets::matchmaking_dll::dwGameTypes + cs2dumper::offsets::matchmaking_dll::dwGameTypes_mapName).into();
 
             // Gamerules
             let bomb_dropped_addr = (self.gamerules + cs2dumper::client::C_CSGameRules::m_bBombDropped as u64).into();
@@ -242,6 +243,7 @@ impl CsData {
 
     pub fn update_pointers(&mut self, ctx: &mut DmaCtx) {
         let mut batcher = ctx.process.batcher();
+        batcher.read_into(ctx.matchmaking_module.base, &mut self.matchmaking);
         batcher.read_into(ctx.client_module.base + cs2dumper::offsets::client_dll::dwGlobalVars, &mut self.globals);
         batcher.read_into(ctx.client_module.base + cs2dumper::offsets::client_dll::dwGameRules, &mut self.gamerules);
         batcher.read_into(ctx.client_module.base + cs2dumper::offsets::client_dll::dwEntityList, &mut self.entity_list);

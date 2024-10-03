@@ -13,6 +13,7 @@ pub struct DmaCtx {
     pub process: IntoProcessInstanceArcBox<'static>,
     pub client_module: ModuleInfo,
     pub engine_module: ModuleInfo,
+    pub matchmaking_module: ModuleInfo,
 }
 
 impl DmaCtx {
@@ -56,10 +57,13 @@ impl DmaCtx {
 
         let engine_module = process.module_by_name("engine2.dll")?;
 
+        let matchmaking_module = process.module_by_name("matchmaking.dll")?;
+
         let mut ctx = Self {
             process,
             client_module,
             engine_module,
+            matchmaking_module,
         };
 
         if !skip_version {
