@@ -166,7 +166,7 @@ impl CsData {
         {
             // Globals
             let tick_count_addr = (self.globals + 0x40).into();
-            let map_addr = (self.matchmaking + cs2dumper::offsets::matchmaking_dll::dwGameTypes + cs2dumper::offsets::matchmaking_dll::dwGameTypes_mapName).into();
+            let map_addr = (self.matchmaking + cs2dumper::offsets::matchmaking_dll::dwGameTypes as u64 + cs2dumper::offsets::matchmaking_dll::dwGameTypes_mapName as u64).into();
 
             // Gamerules
             let bomb_dropped_addr = (self.gamerules + cs2dumper::client::C_CSGameRules::m_bBombDropped as u64).into();
