@@ -1,7 +1,8 @@
 {
-  "pos_x": -3168.0,
-  "pos_y": 1762.0,
-  "scale": 4.0,
-  "rotate": 0,
-  "zoom": 0.0
+	"material": "overviews/de_vertigo_radar",
+	"pos_x": -3168,
+	"pos_y": 1762,
+	"scale": 4.0,
+	"rotate": 0,
+	"zoom": 0
 }

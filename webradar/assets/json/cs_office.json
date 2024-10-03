@@ -1,7 +1,9 @@
 {
-  "pos_x": -1838.0,
-  "pos_y": 1858.0,
-  "scale": 4.1,
-  "rotate": 0,
-  "zoom": 0.0
+	"material": "overviews/cs_office",
+	"pos_x": -1838,
+	"pos_y": 1858,
+	"scale": 4.1,
+	"rotate": 0,
+	"zoom": 0.0
 }
+

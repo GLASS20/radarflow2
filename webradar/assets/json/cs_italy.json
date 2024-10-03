@@ -1,7 +1,9 @@
 {
-  "pos_x": -2647.0,
-  "pos_y": 2592.0,
-  "scale": 4.6,
-  "rotate": 1,
-  "zoom": 1.5
+	"material": "overviews/cs_italy",
+	"pos_x": -2647,
+	"pos_y": 2592,
+	"scale": 4.6,
+	"rotate": 1,
+	"zoom": 1.5
 }
+

@@ -1,7 +1,8 @@
 {
-  "pos_x": -3230.0,
-  "pos_y": 1713.0,
-  "scale": 5.0,
-  "rotate": 0,
-  "zoom": 0.0
+	"material": "overviews/de_mirage",
+	"pos_x": -3230,
+	"pos_y": 1713,
+	"scale": 5.00,
+	"rotate": 0,
+	"zoom": 0
 }
